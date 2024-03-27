@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { View, Image, Text, Pressable } from "react-native";
-import styles from "../styles/LoginStyle";
 import { TextInput } from "react-native-paper";
 import { Icon } from "react-native-elements";
 import { FIREBASE_AUTH } from "../FirebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import FlashMessage, { showMessage } from "react-native-flash-message";
+import styles from "./styles/LoginStyle";
+styles
 
 const Login = ({ navigation }) => {
   <FlashMessage position="top" />;
@@ -56,16 +57,16 @@ const Login = ({ navigation }) => {
         showMessage({
           message: "successful",
           type: "success",
-          duration: 1800,
+          duration: 3000,
         });
         setTimeout(() => {
-          navigation.navigate("Dashboard");
+          navigation.navigate("congratulation");
         }, 3000);
       } catch (error) {
         showMessage({
           message: "Failed",
           type: "danger",
-          duration: 1800,
+          duration: 3000,
         });
       }
     }

@@ -4,7 +4,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Button from "./Button";
 
 
-const ForgetPW = () => {
+const Verify = () => {
     return (
         <View style={{ paddingHorizontal: 30, paddingVertical: 30 }}>
             <View style={{ display: 'flex', flexDirection: 'row', gap: 15 }}>

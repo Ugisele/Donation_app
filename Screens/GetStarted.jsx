@@ -34,10 +34,7 @@ const Started = ({ navigation }) => {
                     <Button title="next" />
                 </Pressable>
             </View>
-
-
         </View>
-
     )
 }
 
