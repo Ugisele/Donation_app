@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
+    paddingVertical: 20,
     alignItems: "center",
     justifyContent: "center",
     height: "100%",
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
   input: {
     height: 50,
     borderRadius: 20,
-    width: "65%",
+    width: "75%",
     color: "white",
     borderWidth: 1,
     backgroundColor: "#ffffff",
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   get: {
-    width: "65%",
+    width: "75%",
     marginTop: 10,
   },
   icon: {

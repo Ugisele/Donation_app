@@ -6,6 +6,9 @@ import { FIREBASE_AUTH } from "../FirebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import FlashMessage, { showMessage } from "react-native-flash-message";
 import styles from "./styles/LoginStyle";
+import Button from "./BottonComp";
+
+
 styles
 
 const Login = ({ navigation }) => {
@@ -16,9 +19,9 @@ const Login = ({ navigation }) => {
   const [passwordError, setPasswordError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const auth =FIREBASE_AUTH
+  const auth = FIREBASE_AUTH
 
-  const togglePasswordVisibility = () => {
+   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
@@ -75,14 +78,14 @@ const Login = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <FlashMessage position="top" />
-      <Pressable onPress={() => navigation.navigate("Home")} style={styles.img}>
+    
         <Image
           source={require("../assets/wecare.png")}
           style={styles.image}
-          
+
           resizeMode="cover"
         />
-      </Pressable>
+     
       <View style={styles.textContainer}>
         <Text style={styles.text}>Sign in to your account</Text>
       </View>
@@ -98,7 +101,7 @@ const Login = ({ navigation }) => {
         placeholder="email"
         placeholderTextColor="gray"
         underlineColor="#fcfcfc"
-        textColor="#eceeef"
+        textColor="black"
         onChangeText={setEmail}
         error={emailError}
       />
@@ -111,7 +114,7 @@ const Login = ({ navigation }) => {
           },
         }}
         style={styles.input}
-        textColor="#eceeef"
+        textColor="black"
         placeholder="password"
         placeholderTextColor="gray"
         secureTextEntry={!showPassword}
@@ -127,23 +130,11 @@ const Login = ({ navigation }) => {
         onChangeText={setPassword}
         error={passwordError}
       />
-       {passwordError ? <Text style={styles.error}>{passwordError}</Text> : null}
+      {passwordError ? <Text style={styles.error}>{passwordError}</Text> : null}
       <Pressable onPress={handleSubmit} style={styles.get}>
-        <Text
-          style={{
-            color: "#b7e1c9",
-            backgroundColor: "#54ae7a",
-            textAlign: "center",
-            width: "100%",
-            borderRadius: 20,
-            marginLeft: "auto",
-            marginRight: "auto",
-            paddingTop: 10,
-            paddingBottom: 10,
-          }}
-        >
-          Sign In
-        </Text>
+
+        <Button title="Sign in" />
+
       </Pressable>
       <Text style={{ color: "#71d19a", marginTop: 20, marginBottom: 20 }}>
         Forgot password?
@@ -182,7 +173,7 @@ const Login = ({ navigation }) => {
       </View>
 
       <View style={styles.link}>
-        <Text style={{ color: "#d6d7da" }}>Don't have an account?</Text>
+        <Text style={{ color: "#8a8e95" }}>Don't have an account?</Text>
         <Pressable onPress={() => navigation.navigate("register")}>
           <Text style={{ color: "#66ce92" }}>Sign Up</Text>
         </Pressable>

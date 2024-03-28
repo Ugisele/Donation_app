@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react';
 
 export const ChangeMode = createContext();
 
-export const modeChanged = ({children}) => {
+export const ModeChanged = ({children}) => {
     const [light,setLight] = useState(false)
 
     const handleChange = () => {
@@ -11,7 +11,7 @@ export const modeChanged = ({children}) => {
     }
 
    return (
-    <ChangeMode.Provider value={{handleChange}}>
+    <ChangeMode.Provider value={{handleChange,light}}>
         {children}
     </ChangeMode.Provider>
    )
