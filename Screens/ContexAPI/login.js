@@ -1,5 +1,5 @@
 import React, { useContext, } from "react"
-import { View, Image, Text, Pressable,StyleSheet,Button,useColorScheme,Switch } from "react-native";
+import { View, Image, Text, Pressable,StyleSheet,Button,useColorScheme,Switch,Statusbar } from "react-native";
 import { TextInput, IconButton, Icon } from "react-native-paper";
 import { ChangeMode } from "./context";
 
@@ -22,7 +22,7 @@ const Input = () =>{
 
             </Pressable>
        
-       {/* <Switch value={colorScheme == "pink"} onValueChange={toggleColorScheme} /> */}
+       <Switch value={{}} onValueChange={() => {}} />
         
         <View style={styles.view}>
             <Text style={{ 
@@ -35,7 +35,7 @@ const Input = () =>{
             mode="flat"
             placeholder="Email Address"
             />
-            <TextInput style={styles.input}
+           <TextInput style={styles.input}
             label='password'
             mode="flat"
             placeholder="Enter password"
@@ -43,15 +43,16 @@ const Input = () =>{
             />
 
             <Pressable>
-                <Text style={{backgroundColor:'red',fontSize: 16,width: 375,height:40,textAlign:'center',paddingTop:8,color:'white',fontWeight:'600',top:20}}>
+                <Text style={{backgroundColor:'red',fontSize: 18,width: 375,height:40,textAlign:'center',paddingTop:8,color:'white',fontWeight:'600',top:20}}>
                     Login
                 </Text>
             </Pressable>
 
             <Pressable>
-                <Text style={{padding:10,color:'blue',top:20}}>Sign Up</Text>
+                <Text style={{paddingVertical:40,top:20,color:light ? 'blue' : 'green',fontSize: light ? 25 : 20}}>Sign Up</Text>
             </Pressable> 
         </View>
+    
         </View>
     )
 }

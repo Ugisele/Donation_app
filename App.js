@@ -13,6 +13,8 @@ export default function App() {
         
         <Input/>
 
+        <StatusBar style="auto" />
+
       </ModeChanged>
       
  
