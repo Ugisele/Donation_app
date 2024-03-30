@@ -3,6 +3,8 @@ import Started from './Screens/GetStarted';
 import Login from './Screens/Login';
 import Input from './Screens/ContexAPI/login';
 import { ModeChanged } from './Screens/ContexAPI/context';
+import { NavigationContainer } from '@react-navigation/native';
+
 
 
 export default function App() {
@@ -11,7 +13,10 @@ export default function App() {
       // <Login/>
       <ModeChanged>
         
-        <Input/>
+        {/* <Input/> */}
+        <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
 
         <StatusBar style="auto" />
 

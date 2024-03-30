@@ -5,13 +5,13 @@ import { ChangeMode } from "./context";
 
 
 
-const Input = ({navigation}) =>{
+const SignUp = ({navigation}) =>{
     const {handleChange , light} = useContext(ChangeMode)
     // const [colorScheme,toggleColorScheme] = useColorScheme();
 
     return(
         <View style={{  
-            backgroundColor: light ? 'pink'  : 'black',
+            backgroundColor: light ? 'green'  : 'black',
             paddingVertical:20,
             paddingHorizontal:20,
             height: "100%",}} >
@@ -22,14 +22,14 @@ const Input = ({navigation}) =>{
 
             </Pressable>
        
-       <Switch value={{}} onValueChange={() => {}} />
+       {/* <Switch value={{}} onValueChange={() => {}} /> */}
         
         <View style={styles.view}>
             <Text style={{ 
                 fontSize: 24,
                 fontWeight: "500",
                 marginBottom: 20,
-                color: light ? 'black' : 'white'}}>Please sign in</Text>
+                color: light ? 'black' : 'white'}}>Please sign up</Text>
             <TextInput style={styles.input}
             label='email'
             mode="flat"
@@ -41,24 +41,35 @@ const Input = ({navigation}) =>{
             placeholder="Enter password"
             right={<TextInput.Icon icon={'eye'} size={25}/>}
             />
+            <TextInput style={styles.input}
+            label='email'
+            mode="flat"
+            placeholder="Email Address"
+            />
+           <TextInput style={styles.input}
+            label='Confirm password'
+            mode="flat"
+            placeholder="Confirm password"
+            right={<TextInput.Icon icon={'eye'} size={25}/>}
+            />
 
             <Pressable>
                 <Text style={{backgroundColor:'red',fontSize: 18,width: 375,height:40,textAlign:'center',paddingTop:8,color:'white',fontWeight:'600',top:20}}>
-                    Login
+                    Register
                 </Text>
             </Pressable>
 
-            <Pressable onPress={() => {
-                navigation.navigate("signup");
+            <Pressable onPress={ () => {
+                navigation.navigate("input")
             }}>
-                <Text style={{paddingVertical:40,top:20,color:light ? 'blue' : 'green',fontSize: light ? 25 : 20}}>Sign Up</Text>
+                <Text style={{paddingVertical:40,top:20,color:light ? 'blue' : 'green',fontSize: light ? 25 : 20}}>Sign In</Text>
             </Pressable> 
         </View>
     
         </View>
     )
 }
-export default Input;
+export default SignUp;
 
 const styles = StyleSheet.create({
     container:{
