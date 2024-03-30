@@ -10,8 +10,10 @@ export const ModeChanged = ({children}) => {
         setLight(!light)
     }
 
+
+   
    return (
-    <ChangeMode.Provider value={{handleChange,light}}>
+    <ChangeMode.Provider value={{handleChange,light,}}>
         {children}
     </ChangeMode.Provider>
    )

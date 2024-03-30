@@ -1,13 +1,50 @@
-import React, { useContext, } from "react"
-import { View, Image, Text, Pressable,StyleSheet,Button,useColorScheme,Switch,Statusbar } from "react-native";
-import { TextInput, IconButton, Icon } from "react-native-paper";
+import React, { useContext, useState, } from "react"
+import { View,Text, Pressable,StyleSheet,} from "react-native";
+import { TextInput, IconButton,} from "react-native-paper";
 import { ChangeMode } from "./context";
 
 
 
 const Input = ({navigation}) =>{
-    const {handleChange , light} = useContext(ChangeMode)
-    // const [colorScheme,toggleColorScheme] = useColorScheme();
+    const {handleChange , light} = useContext(ChangeMode);
+    const [email,setEmail] = useState();
+    const [password,setPassword] = useState();
+    const [emailerror, setemailError] = useState(false);
+    const [passworderror, setPasswordError] = useState(false)
+
+    const isValidate = () =>{
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        return emailRegex.test(email)
+    }
+    const Validate = () => {
+        let isValid = true
+        
+        if (!email.trim()) {
+            setemailError("Email is required")
+         
+        } else if (!isValidate(email)) {
+            setemailError("Invalid email format")
+    
+        } else {
+            setemailError("")
+        }
+    
+        if (!password.trim()){
+        setPasswordError('password is required')
+        
+     } else if (password.length < 8) {
+        setPasswordError('password must be at least 8 charactres')
+     } else{
+        setPasswordError('')
+     }
+    }
+    const handleSubmit = async () => {
+        if (Validate()) {
+
+            console.log("Login successful");
+            navigation.navigate('welcome');
+        } 
+    }
 
     return(
         <View style={{  
@@ -22,7 +59,7 @@ const Input = ({navigation}) =>{
 
             </Pressable>
        
-       <Switch value={{}} onValueChange={() => {}} />
+       {/* <Switch value={{}} onValueChange={() => {}} /> */}
         
         <View style={styles.view}>
             <Text style={{ 
@@ -33,17 +70,24 @@ const Input = ({navigation}) =>{
             <TextInput style={styles.input}
             label='email'
             mode="flat"
+            value={email}
+            onChangeText={setEmail}
             placeholder="Email Address"
             />
+            {emailerror ? <Text style={{fontSize:15,color: 'red'}}>{emailerror}</Text> : null}
            <TextInput style={styles.input}
             label='password'
             mode="flat"
+            value={password}
+            onChangeText={setPassword}
             placeholder="Enter password"
             right={<TextInput.Icon icon={'eye'} size={25}/>}
             />
-
-            <Pressable>
-                <Text style={{backgroundColor:'red',fontSize: 18,width: 375,height:40,textAlign:'center',paddingTop:8,color:'white',fontWeight:'600',top:20}}>
+            {passworderror ? <Text>{passworderror}</Text> : null}
+            <Pressable onPress={() => {
+                handleSubmit();
+            }}>
+                <Text style={{backgroundColor:'red',fontSize: 18,width: 340,height:40,textAlign:'center',paddingTop:8,color:'white',fontWeight:'600',top:20}}>
                     Login
                 </Text>
             </Pressable>

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { View, Image, Text, Pressable } from "react-native";
-import styles from "../styles/LoginStyle";
 import { TextInput } from "react-native-paper";
 import { Icon, CheckBox } from "react-native-elements";
 import { FIREBASE_AUTH } from "../FirebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import FlashMessage, { showMessage } from "react-native-flash-message";
+import styles from "./styles/LoginStyle";
+
 
 const Register = ({navigation}) => {
   <FlashMessage position="top" />;
