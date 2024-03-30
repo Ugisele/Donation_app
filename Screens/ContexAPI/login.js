@@ -2,8 +2,8 @@ import React, { useContext, useState, } from "react"
 import { View,Text, Pressable,StyleSheet,} from "react-native";
 import { TextInput, IconButton,} from "react-native-paper";
 import { ChangeMode } from "./context";
-
-
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { FIREBASE_AUTH } from "../../FirebaseConfig";
 
 const Input = ({navigation}) =>{
     const {handleChange , light} = useContext(ChangeMode);
@@ -11,6 +11,8 @@ const Input = ({navigation}) =>{
     const [password,setPassword] = useState();
     const [emailerror, setemailError] = useState(false);
     const [passworderror, setPasswordError] = useState(false)
+
+    const auth = FIREBASE_AUTH
 
     const isValidate = () =>{
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -40,9 +42,17 @@ const Input = ({navigation}) =>{
     }
     const handleSubmit = async () => {
         if (Validate()) {
-
-            console.log("Login successful");
-            navigation.navigate('welcome');
+            try {
+                const response = await signInWithEmailAndPassword(auth,email,password)
+                console.log(response);
+                console.log('You are now signed in');
+            }
+            catch (err) {
+                console.log(err)
+                console.log('Invalid email or password');
+            }
+            console.log("Login successfully completed");
+            navigation.navigate('congratulation');
         } 
     }
 
@@ -91,9 +101,10 @@ const Input = ({navigation}) =>{
                     Login
                 </Text>
             </Pressable>
+            {handleSubmit() ? <Text style={{fontSize:20,color:"red",marginTop:20}}>{handleSubmit}</Text> : 'keep going'}
 
             <Pressable onPress={() => {
-                navigation.navigate("signup");
+                navigation.navigate("");
             }}>
                 <Text style={{paddingVertical:40,top:20,color:light ? 'blue' : 'green',fontSize: light ? 25 : 20}}>Sign Up</Text>
             </Pressable> 

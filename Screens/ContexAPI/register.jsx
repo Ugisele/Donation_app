@@ -146,7 +146,6 @@ const SignUp = ({navigation}) =>{
                 <Text style={{paddingVertical:40,top:20,color:light ? 'blue' : 'green',fontSize: light ? 25 : 20}}>Sign In</Text>
             </Pressable> 
         </View>
-    
         </View>
     )
  }
