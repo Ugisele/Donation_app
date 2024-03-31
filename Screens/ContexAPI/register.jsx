@@ -32,9 +32,11 @@ const SignUp = ({navigation}) =>{
     
     if (!email.trim()) {
         setemailError("Email is required")
+        isValid = false;
      
     } else if (!isValidate(email)) {
         setemailError("Invalid email format")
+        isValid = false;
 
     } else {
         setemailError("")
@@ -42,14 +44,17 @@ const SignUp = ({navigation}) =>{
 
     if (!password.trim()){
     setPasswordError('password is required')
+    isValid = false;
     
  } else if (password.length < 8) {
     setPasswordError('password must be at least 8 charactres')
+    isValid = false;
  } else{
     setPasswordError('')
  }
  if (password !== confirmPassword){
     setPasswordsMatch(false)
+    isValid = false;
  } else {
     setPasswordsMatch(true)
  }
@@ -62,15 +67,14 @@ const SignUp = ({navigation}) =>{
                 const response = await createUserWithEmailAndPassword(auth,email,password)
                 console.log(response);
                 console.log('Successfully created');
+
+                navigation.navigate('input')
             }
             catch (err) {
                 console.log(err)
                 console.log('error creating user');
             }
-    
         console.log(username,email,password);
-        navigation.navigate('input')
-
          } 
      } 
     return(
