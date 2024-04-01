@@ -31,7 +31,6 @@ const Input = ({ navigation }) => {
         } else {
             setEmailError("");
         }
-
         if (!password.trim()) {
             setPasswordError("Password is required");
             isValid = false;
@@ -95,7 +94,7 @@ const Input = ({ navigation }) => {
                 />
                 {passwordError ? <Text style={{ fontSize: 15, color: "red" }}>{passwordError}</Text> : null}
                 <Pressable onPress={handleSubmit}>
-                    <Text style={{ backgroundColor: "red", fontSize: 18, width: 340, height: 40, textAlign: "center", paddingTop: 8, color: "white", fontWeight: "600", top: 20 }}>Login</Text>
+                    <Text style={{ backgroundColor: "red", fontSize: 18, width: 370, height: 40, textAlign: "center", paddingTop: 8, color: "white", fontWeight: "600", top: 20 }}>Login</Text>
                 </Pressable>
 
                 <Pressable onPress={() => navigation.navigate("signup")}>

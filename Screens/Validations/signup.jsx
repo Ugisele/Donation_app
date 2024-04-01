@@ -1,4 +1,3 @@
-import * as React from "react"
 import * as Yup from "yup"
 
 
@@ -16,6 +15,10 @@ export const RegisterSchema = Yup.object().shape({
        .oneOf([Yup.ref("password"), null], "Passwords must match")
        .required("Confirm password is required"),
 })
+
+const user = await RegisterSchema.validate(await fetchUser());
+
+
 
 // const LoginSchema = Yup.object().shape({
 // const PasswordSchema = Yup.object().shape({

@@ -9,13 +9,9 @@ export const ModeChanged = ({children}) => {
     const handleChange = () => {
         setLight(!light)
     }
-
-
-   
    return (
-    <ChangeMode.Provider value={{handleChange,light,}}>
+    <ChangeMode.Provider value={{handleChange,light}}>
         {children}
     </ChangeMode.Provider>
    )
 }
-
