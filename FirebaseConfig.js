@@ -2,17 +2,18 @@
 import { initializeApp } from "firebase/app";
 import {getAuth} from "firebase/auth";
 import {getFirestore} from "firebase/firestore";
+import {APIKEY,AUTHDOMAIN,PROJECTID,STORAGEBUCKET,MESSAGINGSENDERID,APPID} from 'app/config'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBKgDKz0KIuVL9JbBIKXnII8i_XqOITKcU",
-  authDomain: "donation-app-ef6c0-1d834.firebaseapp.com",
-  projectId: "donation-app-ef6c0",
-  storageBucket: "donation-app-ef6c0.appspot.com",
-  messagingSenderId: "438582693477",
-  appId: "1:438582693477:web:2222ddf490a518d059008c"
+  apiKey: APIKEY,
+  authDomain: AUTHDOMAIN,
+  projectId:PROJECTID,
+  storageBucket:STORAGEBUCKET,
+  messagingSenderId:MESSAGINGSENDERID,
+  appId: APPID
 };
 
 // Initialize Firebase
